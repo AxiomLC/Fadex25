@@ -1,0 +1,117 @@
+/* Fadex25/fadex25-ui/src/pages/MarketData.module.css */  
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  
+  .marketDataSection {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .controlsGrid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .marketSelection {
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .marketRow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--accent-secondary);
+  }
+  
+  .marketRow.header {
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--accent-primary);
+  }
+  
+  .marketRow .cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .parameterControls {
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .controlGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .apiToggles,
+  .periodButtons,
+  .timeframeButtons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  button {
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  .resultsSection {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .resultsTable table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .resultsTable th,
+  .resultsTable td {
+    border: 1px solid var(--accent-secondary);
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  .resultsTable th {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 1200px) {
+    .controlsGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .marketRow {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }

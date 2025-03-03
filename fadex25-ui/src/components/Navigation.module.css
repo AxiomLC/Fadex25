@@ -1,0 +1,43 @@
+/* Fadex25/fadex25-ui/src/components/Navigation.module.css */
+.navBar {
+    background-color: var(--bg-secondary);
+    padding: 0.1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .navContent {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 120px;
+    width: auto;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navLinks a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  
+  .navLinks a:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .active {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.2);
+  }

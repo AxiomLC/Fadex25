@@ -1,0 +1,76 @@
+/* Fadex25/fadex25-ui/src/index.css */
+:root {
+  --bg-primary: #1C1C28;
+  --bg-secondary: #222235;
+  --text-primary: #F1F1F2;
+  --text-secondary: #A9A9B9;
+  --accent-primary: #39D0D8;
+  --accent-gradient: linear-gradient(45deg, #7748FC, #39D0D8);
+  --border-color: #2D2D45;
+  --danger: #FF5C5C;
+  --success: #45C581;
+  --warning: #FFB946;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navigation (to match your trading bot look) */
+.nav-bar {
+  background-color: var(--bg-secondary);
+  padding: 0.1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 120px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.2);
+}

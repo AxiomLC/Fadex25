@@ -1,0 +1,15 @@
+/* Fadex25/fadex25-ui/src/pages/Backtester.module.css */  
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  
+  .backtesterSection {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }

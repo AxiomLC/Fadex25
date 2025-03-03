@@ -1,0 +1,27 @@
+/* Fadex25/fadex25-ui/src/pages/TestUI.module.css */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  
+  h1, h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    border: 1px solid var(--accent-secondary);
+  }

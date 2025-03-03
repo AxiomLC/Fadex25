@@ -1,0 +1,24 @@
+# Node.js and npm
+node_modules/
+dist/
+
+# Build directories (React build output)
+build/
+fadex25-ui/build/
+
+# Environment files
+.env
+*.env
+
+# Compiled files
+*.log
+*.bak
+
+# IDE and editor files
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
