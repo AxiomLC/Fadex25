@@ -1,0 +1,35 @@
+/* Fadex25/fadex25-ui/src/components/DbStatusBox.module.css */
+.statusBox {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .status {
+    font-size: 1rem; /* Match button font size */
+    padding: 0.25rem 0.5rem; /* Match button padding for height and width */
+    border-radius: 4px; /* Match button border radius */
+    border: 1px solid var(--accent-secondary); /* Match button border */
+    background-color: var(--bg-secondary); /* Match button background */
+    color: #ffffff; /* Match button text color for consistency */
+    margin-right: 0.5rem;
+  }
+  
+  .size {
+    font-size: 1rem; /* Match button font size */
+    color: #D3D3D3; /* Match global text color */
+    padding: 0.25rem 0; /* Add minimal padding to align vertically with status */
+  }
+  
+  .errorPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--danger);
+    z-index: 2000;
+    color: #D3D3D3;
+  }

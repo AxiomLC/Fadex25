@@ -1,3 +1,6 @@
+@import './components/Buttons.css';
+@import './components/DbStatusBox.module.css';
+
 :root {
     --bg-primary: #1C1C28; /* Dark background for main content */
     --bg-secondary: #222235; /* Slightly lighter dark for secondary areas */
@@ -9,197 +12,165 @@
     --danger: #FF5C5C; /* Red for errors/danger */
     --success: #45C581; /* Green for success */
     --warning: #FFB946; /* Yellow for warnings */
-  }
-  
-  /* NEW: Global styles for Dropdown component */
-  .dropdownContainer {
-    position: relative;
-    width: 100%;
-  }
-  
-  .dropdownButton {
-    font-size: 1rem; /* Uniform general text font size */
-    padding: 0.25rem 0.5rem; /* Reduced for mechanical look */
-    border-radius: 4px; /* Reduced for mechanical look */
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary); /* Dark background */
-    color: var(--text-secondary); /* Subtle text for dropdown button */
-    width: fit-content; /* Fit to text width */
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .dropdownContent {
-    position: absolute;
-    top: 100%; /* Force downward opening */
-    left: 0;
-    right: 0;
-    overflow-y: auto;
-    background-color: var(--bg-primary); /* Dark background */
-    border: 1px solid var(--accent-secondary);
-    border-radius: 4px;
-    z-index: 1000; /* Float above UI */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: fit-content; /* Fit to widest text plus selector */
-    min-width: 200px; /* Minimum width to ensure readability */
-    color: var(--text-secondary); /* Subtle text for dropdown items */
-  }
-  
-  .dropdownDown {
-    bottom: auto; /* Ensure downward positioning */
-    top: 100%;
-  }
-  
-  .dropdownItem {
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
-    margin: 0.25rem 0;
-    color: var(--text-secondary); /* Subtle text for dropdown items */
-  }
-  
-  .dropdownItem input[type="checkbox"] {
-    margin-right: 0.5rem;
-  }
-  
-  .selectAllInline {
-    display: inline-flex; /* Keep on same line as "Perp Markets" */
-    align-items: center;
-    color: var(--text-secondary); /* Subtle text for "Select All" */
-  }
-  
-  /* Existing styles remain unchanged */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-primary); /* Explicit dark background for body */
-    color: var(--text-primary); /* Light text for readability */
-    font-size: 1rem; /* Uniform general text font size */
-    line-height: 1.5;
-    margin: 0; /* Explicitly remove default browser margin */
-    padding: 0; /* Explicitly remove default browser padding */
-  }
-  
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem; /* Reduced from 2rem (25% less padding) */
-    background-color: var(--bg-primary); /* Ensure dark background */
-  }
-  
-  /* Navigation (no colored padding/margin, dark theme) */
-  .nav-bar {
-    background-color: var(--bg-secondary); /* Dark secondary background */
-    padding: 0.0125rem 0.5rem; /* Reduced for thinner bar */
-    /* No border-bottom to avoid lines */
-  }
-  
-  .nav-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.0625rem 0; /* Reduced padding */
-    background-color: var(--bg-secondary); /* Ensure dark background */
-  }
-  
-  .logo {
-    height: 40px; /* Reduced by a third from 60px */
-    width: auto;
-    padding: 0; /* No padding to minimize space */
-    margin: 0; /* No margin to minimize space */
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 0.25rem; /* Reduced for tighter spacing */
-  }
-  
-  .nav-links a {
-    color: var(--text-secondary); /* Subtle text for links */
-    text-decoration: none;
-    padding: 0.0625rem 0.125rem; /* Reduced for mechanical look */
-    border-radius: 2px; /* Reduced for mechanical look */
-    transition: all 0.2s;
-    font-size: 1rem; /* Uniform general text font size */
-    background-color: var(--bg-secondary); /* Ensure dark background */
-  }
-  
-  .nav-links a:hover {
-    color: var(--text-primary); /* Light text on hover */
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight on dark */
-  }
-  
-  .nav-links a.active {
-    color: var(--text-primary); /* Light text for active */
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle highlight on dark */
-  }
-  
-  /* General content divs/blocks (no colored padding/margin, dark theme) */
-  div, section {
-    padding: 0.75rem; /* Reduced from 1rem or 1.5rem (25% less) */
-    margin: 0.375rem 0; /* Reduced from 0.5rem or 0.75rem (25% less) */
-    background-color: var(--bg-secondary); /* Dark secondary background for blocks */
-    /* Removed border to eliminate lines */
-  }
-  
-  /* Headings (dark theme) */
-  h1 {
-    font-size: 1.4rem; /* Section headings */
-    margin-bottom: 0.75rem;
-    color: var(--text-primary); /* Ensure light text on dark */
-  }
-  
-  h2 {
-    font-size: 1.05rem; /* Subheadings/column titles */
-    margin-bottom: 0.5rem;
-    color: var(--text-primary); /* Ensure light text on dark */
-  }
-  
-  /* Ensure general text (Perp Markets, dropdowns, lists) is uniform at 1rem, dark theme */
-  p, li, span, input, select, button {
-    font-size: 1rem; /* Uniform general text font size */
-    line-height: 1.5;
-    color: var(--text-primary); /* Light text on dark */
-    background-color: var(--bg-primary); /* Dark background for text elements */
-    text-transform: none; /* Prevent unintended capitalization */
-  }
-  
-  /* Buttons (dark theme) */
-  button {
-    font-size: 1rem; /* Uniform general text font size */
-    padding: 0.25rem 0.5rem; /* Reduced for mechanical look */
-    border-radius: 4px; /* Reduced for mechanical look */
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary); /* Dark background */
-    color: var(--text-primary); /* Light text */
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  button.start {
-    background-color: var(--success); /* Green for Start */
-  }
-  
-  button.pause {
-    background-color: var(--warning); /* Yellow for Pause */
-  }
-  
-  button.stop {
-    background-color: var(--danger); /* Red for Stop */
-  }
-  
-  button.status {
-    background-color: var(--accent-primary); /* Cyan for Status */
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
+}
+
+/* NEW: Global styles for Dropdown component */
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownButton {
+  font-size: 1rem; /* Uniform general text font size */
+  padding: 0.25rem 0.5rem; /* Reduced for mechanical look */
+  border-radius: 4px; /* Reduced for mechanical look */
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--bg-primary); /* Dark background */
+  color: var(--text-secondary); /* Subtle text for dropdown button */
+  width: fit-content; /* Fit to text width */
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%; /* Force downward opening */
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  background-color: var(--bg-primary); /* Dark background */
+  border: 1px solid var(--accent-secondary);
+  border-radius: 4px;
+  z-index: 1000; /* Float above UI */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: fit-content; /* Fit to widest text plus selector */
+  min-width: 200px; /* Minimum width to ensure readability */
+  color: var(--text-secondary); /* Subtle text for dropdown items */
+}
+
+.dropdownDown {
+  bottom: auto; /* Ensure downward positioning */
+  top: 100%;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 0.25rem 0;
+  color: var(--text-secondary); /* Subtle text for dropdown items */
+}
+
+.dropdownItem input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.selectAllInline {
+  display: inline-flex; /* Keep on same line as "Perp Markets" */
+  align-items: center;
+  color: var(--text-secondary); /* Subtle text for "Select All" */
+}
+
+/* Existing styles remain unchanged */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg-primary); /* Explicit dark background for body */
+  color: var(--text-primary); /* Light text for readability */
+  font-size: 1rem; /* Uniform general text font size */
+  line-height: 1.5;
+  margin: 0; /* Explicitly remove default browser margin */
+  padding: 0; /* Explicitly remove default browser padding */
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem; /* Reduced from 2rem (25% less padding) */
+  background-color: var(--bg-primary); /* Ensure dark background */
+}
+
+/* Navigation (no colored padding/margin, dark theme) */
+.nav-bar {
+  background-color: var(--bg-secondary); /* Dark secondary background */
+  padding: 0.0125rem 0.5rem; /* Reduced for thinner bar */
+  /* No border-bottom to avoid lines */
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.0625rem 0; /* Reduced padding */
+  background-color: var(--bg-secondary); /* Ensure dark background */
+}
+
+.logo {
+  height: 40px; /* Reduced by a third from 60px */
+  width: auto;
+  padding: 0; /* No padding to minimize space */
+  margin: 0; /* No margin to minimize space */
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem; /* Reduced for tighter spacing */
+}
+
+.nav-links a {
+  color: var(--text-secondary); /* Subtle text for links */
+  text-decoration: none;
+  padding: 0.0625rem 0.125rem; /* Reduced for mechanical look */
+  border-radius: 2px; /* Reduced for mechanical look */
+  transition: all 0.2s;
+  font-size: 1rem; /* Uniform general text font size */
+  background-color: var(--bg-secondary); /* Ensure dark background */
+}
+
+.nav-links a:hover {
+  color: var(--text-primary); /* Light text on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight on dark */
+}
+
+.nav-links a.active {
+  color: var(--text-primary); /* Light text for active */
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle highlight on dark */
+}
+
+/* General content divs/blocks (no colored padding/margin, dark theme) */
+div, section {
+  padding: 0.75rem; /* Reduced from 1rem or 1.5rem (25% less) */
+  margin: 0.375rem 0; /* Reduced from 0.5rem or 0.75rem (25% less) */
+  background-color: var(--bg-secondary); /* Dark secondary background for blocks */
+  /* Removed border to eliminate lines */
+}
+
+/* Headings (dark theme) */
+h1 {
+  font-size: 1.4rem; /* Section headings */
+  margin-bottom: 0.75rem;
+  color: var(--text-primary); /* Ensure light text on dark */
+}
+
+h2 {
+  font-size: 1.05rem; /* Subheadings/column titles */
+  margin-bottom: 0.5rem;
+  color: var(--text-primary); /* Ensure light text on dark */
+}
+
+/* Ensure general text (Perp Markets, dropdowns, lists) is uniform at 1rem, dark theme */
+p, li, span, input, select {
+  font-size: 1rem; /* Uniform general text font size */
+  line-height: 1.5;
+  color: var(--text-primary); /* Light text on dark */
+  background-color: var(--bg-primary); /* Dark background for text elements */
+  text-transform: none; /* Prevent unintended capitalization */
+}

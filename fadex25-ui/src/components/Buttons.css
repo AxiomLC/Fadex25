@@ -1,0 +1,44 @@
+/* Fadex25/fadex25-ui/src/components/Buttons.css */
+
+.button-base {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s; /* Include opacity for hover */
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #333333; /* Dark grey text for consistency with buttons */
+  }
+  
+  .orangeButton {
+    background-color: var(--warning); /* Orange for PAUSE */
+  }
+  
+  .greenButton {
+    background-color: var(--success); /* Green for RESTART DB */
+  }
+  
+  .greyButton {
+    background-color: #808080; /* Grey for View button */
+  }
+  
+  .smallClearButton {
+    font-size: 0.67rem; /* 1/3 smaller than 1rem (approx. 0.67rem) */
+    padding: 0.167rem 0.333rem; /* Scaled down proportionally (1/3 smaller) */
+    border-radius: 4px;
+    border: 1px solid #808080; /* Visible grey border */
+    background-color: transparent; /* Transparent background */
+    color: #D3D3D3; /* Light grey for plain text, matching global text */
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s; /* Include opacity for hover */
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  
+  /* Hover effects with increased transparency (30% more transparent, i.e., lower opacity) */
+  .orangeButton:hover,
+  .greenButton:hover,
+  .greyButton:hover,
+  .smallClearButton:hover {
+    opacity: 0.56; /* Original opacity ~0.8, reduced by 30% (0.8 * 0.7 = 0.56) */
+  }
