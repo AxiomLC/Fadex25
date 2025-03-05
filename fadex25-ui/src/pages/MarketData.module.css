@@ -1,73 +1,206 @@
 /* Fadex25/fadex25-ui/src/pages/MarketData.module.css */
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1.5rem; /* Reduced from 2rem (25% less padding) */
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-size: 1rem; /* Uniform general text font size */
-  font-family: 'Inter', -apple-system, sans-serif;
-}
-
-.marketDataSection {
-  background-color: var(--bg-secondary);
-  border-radius: 6px; /* Reduced for mechanical look */
-  padding: 0.75rem; /* Reduced from 1.5rem (25% less padding) */
-  margin: 0.375rem 0; /* Reduced for consistency */
-}
-
-h1 {
-  font-size: 1.4rem; /* Section headings */
-  margin-bottom: 0.75rem;
-}
-
-h2 {
-  font-size: 1.05rem; /* Subheadings/column titles */
-  margin-bottom: 0.5rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0.375rem; /* Reduced from 0.5rem (25% less) */
-}
-
-li {
-  background-color: var(--bg-primary);
-  padding: 0.25rem 0.375rem; /* Reduced for mechanical look */
-  margin: 0.25rem 0; /* Reduced for mechanical look */
-  border-radius: 4px; /* Reduced for mechanical look */
-  border: 1px solid var(--accent-secondary);
-  font-size: 1rem; /* Uniform general text font size */
-}
-
-/* Ensure buttons in MarketData follow the same styling */
-button {
-  font-size: 1rem; /* Uniform general text font size */
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--accent-secondary);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-button.start {
-  background-color: var(--success);
-}
-
-button.pause {
-  background-color: var(--warning);
-}
-
-button.stop {
-  background-color: var(--danger);
-}
-
-button.status {
-  background-color: var(--accent-primary);
-}
-
-button:hover {
-  opacity: 0.8;
-}
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: 'Inter', -apple-system, sans-serif;
+    position: relative; /* For modal positioning */
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: flex-end; /* Align controls to the right */
+    align-items: flex-start; /* Align items at the top */
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 0.5rem;
+  }
+  
+  .statusBox {
+    margin-left: 0.5rem; /* Space between buttons and status */
+  }
+  
+  .flexTable {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-secondary);
+  }
+  
+  .flexRow {
+    display: flex;
+    width: 100%;
+  }
+  
+  .flexCell {
+    padding: 0.25rem 0.375rem;
+    border: 1px solid var(--accent-secondary);
+    flex: 1; /* Ensure even column spacing and full width */
+    min-width: 0; /* Allow shrinking */
+  }
+  
+  .leftJustified {
+    text-align: left; /* Left justify Perp Markets content */
+  }
+  
+  .centered {
+    text-align: center; /* Center API content */
+  }
+  
+  .rightJustified {
+    text-align: right; /* Right justify Indicators content */
+  }
+  
+  .thTitle {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+  }
+  
+  .selectAll {
+    margin-left: 0.5rem;
+  }
+  
+  .dropdownContainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdownButton {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .dropdownContent {
+    position: absolute;
+    top: 100%; /* Force downward opening */
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--accent-secondary);
+    border-radius: 4px;
+    z-index: 1000; /* Float above UI */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: auto; /* Match widest item plus selector */
+    min-width: 200px; /* Minimum width to ensure readability */
+  }
+  
+  .dropdownDown {
+    bottom: auto; /* Ensure downward positioning */
+    top: 100%;
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    margin: 0.25rem 0;
+  }
+  
+  .dropdownItem input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .dropdownItem span {
+    font-size: 1rem;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button.pause {
+    background-color: var(--warning); /* Yellow for PAUSE */
+  }
+  
+  button.restart {
+    background-color: var(--success); /* Green for RESTART DB */
+  }
+  
+  button.viewButton {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .status {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem; /* Match button padding for height */
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Above dropdowns */
+  }
+  
+  .modalContent {
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    background: transparent; /* No background color */
+  }
+  
+  .closeButton {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+  }
+  
+  .selectionsSpacer {
+    height: 1rem; /* Add space above "Selections" */
+  }
