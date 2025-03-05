@@ -1,7 +1,7 @@
 .container {
-  max-width: 1400px;
+  max-width: 1400px; /* Match Fadex25’s max-width for consistency with other pages */
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem; /* Match padding in index.css */
   background-color: var(--bg-primary); /* Revert to previous settings */
   color: #D3D3D3; /* Light Grey for global text color */
   font-size: 1rem;
@@ -69,6 +69,7 @@
   border: 1px solid var(--accent-secondary);
   flex: 1; /* Ensure even column spacing and full width */
   min-width: 0; /* Allow shrinking */
+  position: relative; /* Ensure dropdown can position absolutely within flex cell */
   color: #D3D3D3; /* Light Grey for text in cells */
 }
 
@@ -95,66 +96,6 @@
   border: none; /* Remove any border */
   padding: 0; /* Remove padding */
   color: #D3D3D3; /* Light Grey for text */
-}
-
-.selectAllInline {
-  display: inline-flex; /* Keep on same line as "Perp Markets" */
-  align-items: center;
-  color: #D3D3D3; /* Light Grey for text */
-}
-
-.dropdownContainer {
-  position: relative;
-  width: 100%;
-}
-
-.dropdownButton {
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--accent-secondary);
-  background-color: var(--bg-primary); /* Revert to previous settings */
-  color: #D3D3D3; /* Light Grey for text */
-  width: fit-content; /* Fit to text width */
-  text-align: left;
-  cursor: pointer;
-}
-
-.dropdownContent {
-  position: absolute;
-  top: 100%; /* Force downward opening */
-  left: 0;
-  right: 0;
-  overflow-y: auto;
-  background-color: var(--bg-primary);
-  border: 1px solid var(--accent-secondary);
-  border-radius: 4px;
-  z-index: 1000; /* Float above UI */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  width: fit-content; /* Fit to widest text plus selector */
-  min-width: 200px; /* Minimum width to ensure readability */
-  color: #D3D3D3; /* Light Grey for text */
-}
-
-.dropdownDown {
-  bottom: auto; /* Ensure downward positioning */
-  top: 100%;
-}
-
-.dropdownItem {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-  margin: 0.25rem 0;
-  color: #D3D3D3; /* Light Grey for text */
-}
-
-.dropdownItem input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
-.dropdownItem span {
-  font-size: 1rem;
 }
 
 .orangeButton {
@@ -246,4 +187,9 @@
 
 .selectionsSpacer {
   height: 1rem; /* Add space above "Selections" */
+}
+
+.error {
+  color: var(--danger); /* Red for errors */
+  margin-bottom: 1rem;
 }

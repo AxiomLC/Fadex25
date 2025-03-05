@@ -1,4 +1,3 @@
-/* Fadex25/fadex25-ui/src/index.css */
 :root {
     --bg-primary: #1C1C28; /* Dark background for main content */
     --bg-secondary: #222235; /* Slightly lighter dark for secondary areas */
@@ -12,6 +11,65 @@
     --warning: #FFB946; /* Yellow for warnings */
   }
   
+  /* NEW: Global styles for Dropdown component */
+  .dropdownContainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdownButton {
+    font-size: 1rem; /* Uniform general text font size */
+    padding: 0.25rem 0.5rem; /* Reduced for mechanical look */
+    border-radius: 4px; /* Reduced for mechanical look */
+    border: 1px solid var(--accent-secondary);
+    background-color: var(--bg-primary); /* Dark background */
+    color: var(--text-secondary); /* Subtle text for dropdown button */
+    width: fit-content; /* Fit to text width */
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdownContent {
+    position: absolute;
+    top: 100%; /* Force downward opening */
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: var(--bg-primary); /* Dark background */
+    border: 1px solid var(--accent-secondary);
+    border-radius: 4px;
+    z-index: 1000; /* Float above UI */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: fit-content; /* Fit to widest text plus selector */
+    min-width: 200px; /* Minimum width to ensure readability */
+    color: var(--text-secondary); /* Subtle text for dropdown items */
+  }
+  
+  .dropdownDown {
+    bottom: auto; /* Ensure downward positioning */
+    top: 100%;
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    margin: 0.25rem 0;
+    color: var(--text-secondary); /* Subtle text for dropdown items */
+  }
+  
+  .dropdownItem input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .selectAllInline {
+    display: inline-flex; /* Keep on same line as "Perp Markets" */
+    align-items: center;
+    color: var(--text-secondary); /* Subtle text for "Select All" */
+  }
+  
+  /* Existing styles remain unchanged */
   * {
     margin: 0;
     padding: 0;

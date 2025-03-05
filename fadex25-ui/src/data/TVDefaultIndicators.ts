@@ -1,5 +1,5 @@
-// List of indicators from: User-provided list (March 3, 2025)
-export const tvDefaultIndicators: string[] = [
+// List of indicators from: User-provided list (March 3, 2025) UPDATE Periodically
+export const tvdefaultindicators: string[] = [
     '52 Week High/Low',
     'Accelerator Oscillator',
     'Accumulation/Distribution',

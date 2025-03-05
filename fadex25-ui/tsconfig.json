@@ -18,7 +18,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src", // Resolve imports relative to src/
+    "paths": {
+      "*": ["*"], // Allow wildcard imports
+      "components/*": ["components/*"], // Explicitly include components directory
+      "data/*": ["data/*"] // Explicitly include data directory
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.bak"]

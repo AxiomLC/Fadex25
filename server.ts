@@ -34,23 +34,6 @@ app.get('/api/perp-markets', async (req: Request, res: Response) => {
   }
 });
 
-// API endpoint for TradingView indicators
-app.get('/api/indicators', (req: Request, res: Response) => {
-  console.log('Requesting /api/indicators');
-  try {
-    const module = require('./api/TVdefaultindicators');
-    const { tvDefaultIndicators } = module;
-    console.log('Indicators fetched:', tvDefaultIndicators);
-    res.json(tvDefaultIndicators);
-  } catch (error: any) {
-    console.error('Server error fetching indicators:', error);
-    if (error.code === 'MODULE_NOT_FOUND') {
-      console.error('Check if api/TVdefaultindicators.ts exists in Fadex25/api/');
-    }
-    res.status(500).json({ error: 'Failed to fetch indicators' });
-  }
-});
-
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

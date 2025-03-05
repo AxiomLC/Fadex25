@@ -1,10 +1,11 @@
 // Fadex25/fadex25-ui/src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MarketData from './pages/MarketData';
+import Navigation from './components/Navigation';
 import LiveTrade from './pages/LiveTrade';
 import Backtester from './pages/Backtester';
-import Navigation from './components/Navigation'; // Verify this path
+import MarketData from './pages/MarketData';
+
 import './App.css';
 
 function App() {
