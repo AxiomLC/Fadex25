@@ -1,4 +1,3 @@
-// Fadex25/fadex25-ui/src/pages/MarketData.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './MarketData.module.css';
 
@@ -18,7 +17,7 @@ export default function MarketData() {
   const [indicators, setIndicators] = useState<string[]>([]);
   const [selectedIndicators, setSelectedIndicators] = useState<string[]>([]); // Track multiple selected indicators
   const [error, setError] = useState<string | null>(null);
-  const [dbStatus, setDbStatus] = useState<string>('Paused/Error'); // DB status for UI
+  const [dbStatus, setDbStatus] = useState<string>('Acitve/Paused/Error'); // DB status for UI
   const [dbSize, setDbSize] = useState<string>('8.3gb'); // Placeholder DB size
   const [isOpenPerp, setIsOpenPerp] = useState(false); // Toggle for Perp dropdown
   const [isOpenIndicator, setIsOpenIndicator] = useState(false); // Toggle for Indicator dropdown
@@ -118,22 +117,24 @@ export default function MarketData() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Market Data</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div className={styles.controls}>
-        <div className={styles.buttonGroup}>
-          <button className={styles.pause} onClick={() => setDbStatus('Paused/Error')}>PAUSE</button>
-          <button className={styles.restart} onClick={handleRestartDB}>RESTART DB</button>
-        </div>
-        <div className={styles.statusBox}>
-          <span className={styles.status}>DB Status: {dbStatus} | Size: {dbSize}</span>
+      <div className={styles.headerBox}>
+        <h1 className={styles.title}>Market Data</h1>
+        <h1 className={styles.subtitle}>3 Month Dynamic DB</h1>
+        <div className={styles.controls}>
+          <div className={styles.buttonGroup}>
+            <button className={styles.orangeButton} onClick={() => setDbStatus('Paused/Error')}>PAUSE</button>
+            <button className={styles.greenButton} onClick={handleRestartDB}>RESTART DB</button>
+          </div>
+          <div className={styles.statusBox}>
+            <span className={styles.status}>DB Status: {dbStatus} | Size: {dbSize}</span>
+          </div>
         </div>
       </div>
       <div className={styles.flexTable}>
         <div className={styles.flexRow}>
           <div className={`${styles.flexCell} ${styles.leftJustified}`}>
             <span className={styles.thTitle}>Perp Markets</span>
-            <label className={styles.selectAll}>
+            <label className={styles.selectAllInline}>
               <input type="checkbox" checked={selectedMarkets.length === perpMarkets.length} onChange={handleSelectAllMarkets} />
               Select All
             </label>
@@ -142,7 +143,7 @@ export default function MarketData() {
                 Select a Perp Market
               </button>
               {isOpenPerp && (
-                <div className={`${styles.dropdownContent} ${styles.dropdownDown}`} style={{ maxHeight: Math.max(300, perpMarkets.length * 20) + 'px', width: 'auto' }}>
+                <div className={`${styles.dropdownContent} ${styles.dropdownDown}`} style={{ maxHeight: Math.max(300, perpMarkets.length * 20) + 'px' }}>
                   {perpMarkets.map(market => (
                     <label key={market} className={styles.dropdownItem}>
                       <input
@@ -159,7 +160,9 @@ export default function MarketData() {
           </div>
           <div className={`${styles.flexCell} ${styles.centered}`}>
             <span className={styles.thTitle}>API: TV OHLC 1m 5m 15m 1h</span>
-            <button className={styles.viewButton} onClick={() => setIsApiOpen(true)}>View</button>
+            <div className={styles.viewButtonWrapper}>
+            <button className={styles.greyButton} onClick={() => setIsApiOpen(true)}>View</button>
+            </div>
           </div>
           <div className={`${styles.flexCell} ${styles.rightJustified}`}>
             <span className={styles.thTitle}>Indicators</span>
@@ -168,7 +171,7 @@ export default function MarketData() {
                 Select an Indicator
               </button>
               {isOpenIndicator && (
-                <div className={`${styles.dropdownContent} ${styles.dropdownDown}`} style={{ maxHeight: Math.max(300, indicators.length * 20) + 'px', width: 'auto' }}>
+                <div className={`${styles.dropdownContent} ${styles.dropdownDown}`} style={{ maxHeight: Math.max(300, indicators.length * 20) + 'px' }}>
                   {indicators.map(indicator => (
                     <label key={indicator} className={styles.dropdownItem}>
                       <input
@@ -186,7 +189,7 @@ export default function MarketData() {
         </div>
       </div>
       <div className={styles.selectionsSpacer}></div>
-      <p>Selections - Selected Markets: {selectedMarkets.join(', ')}, Selected Indicators: {selectedIndicators.join(', ')}</p>
+      <p className={styles.selectionsLabel}>Selections - Selected Markets: {selectedMarkets.join(', ')}, Selected Indicators: {selectedIndicators.join(', ')}</p>
       {isApiOpen && (
         <div className={styles.modalOverlay} onClick={() => setIsApiOpen(false)}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>

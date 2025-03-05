@@ -1,206 +1,249 @@
-/* Fadex25/fadex25-ui/src/pages/MarketData.module.css */
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-size: 1rem;
-    font-family: 'Inter', -apple-system, sans-serif;
-    position: relative; /* For modal positioning */
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .controls {
-    display: flex;
-    justify-content: flex-end; /* Align controls to the right */
-    align-items: flex-start; /* Align items at the top */
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  .buttonGroup {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 0.5rem;
-  }
-  
-  .statusBox {
-    margin-left: 0.5rem; /* Space between buttons and status */
-  }
-  
-  .flexTable {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-secondary);
-  }
-  
-  .flexRow {
-    display: flex;
-    width: 100%;
-  }
-  
-  .flexCell {
-    padding: 0.25rem 0.375rem;
-    border: 1px solid var(--accent-secondary);
-    flex: 1; /* Ensure even column spacing and full width */
-    min-width: 0; /* Allow shrinking */
-  }
-  
-  .leftJustified {
-    text-align: left; /* Left justify Perp Markets content */
-  }
-  
-  .centered {
-    text-align: center; /* Center API content */
-  }
-  
-  .rightJustified {
-    text-align: right; /* Right justify Indicators content */
-  }
-  
-  .thTitle {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-weight: bold;
-  }
-  
-  .selectAll {
-    margin-left: 0.5rem;
-  }
-  
-  .dropdownContainer {
-    position: relative;
-    width: 100%;
-  }
-  
-  .dropdownButton {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .dropdownContent {
-    position: absolute;
-    top: 100%; /* Force downward opening */
-    left: 0;
-    right: 0;
-    overflow-y: auto;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--accent-secondary);
-    border-radius: 4px;
-    z-index: 1000; /* Float above UI */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: auto; /* Match widest item plus selector */
-    min-width: 200px; /* Minimum width to ensure readability */
-  }
-  
-  .dropdownDown {
-    bottom: auto; /* Ensure downward positioning */
-    top: 100%;
-  }
-  
-  .dropdownItem {
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
-    margin: 0.25rem 0;
-  }
-  
-  .dropdownItem input[type="checkbox"] {
-    margin-right: 0.5rem;
-  }
-  
-  .dropdownItem span {
-    font-size: 1rem;
-  }
-  
-  button {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  button.pause {
-    background-color: var(--warning); /* Yellow for PAUSE */
-  }
-  
-  button.restart {
-    background-color: var(--success); /* Green for RESTART DB */
-  }
-  
-  button.viewButton {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .status {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem; /* Match button padding for height */
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-  }
-  
-  .modalOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000; /* Above dropdowns */
-  }
-  
-  .modalContent {
-    padding: 1rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-    background: transparent; /* No background color */
-  }
-  
-  .closeButton {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-secondary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 1rem;
-  }
-  
-  .selectionsSpacer {
-    height: 1rem; /* Add space above "Selections" */
-  }
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--bg-primary); /* Revert to previous settings */
+  color: #D3D3D3; /* Light Grey for global text color */
+  font-size: 1rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  position: relative; /* For modal positioning */
+}
+
+.headerBox {
+  background-color: var(--bg-secondary); /* Navy blue matching the Nav bar, buttons, and status */
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  width: 100%; /* Match Nav width */
+  max-width: 1400px; /* Same as container */
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #D3D3D3; /* Light Grey for heading text */
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #D3D3D3; /* Light Grey for heading text */
+  font-size: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between; /* Space buttons and status evenly */
+  align-items: center; /* Vertically center items */
+  margin-top: 1rem; /* Add space below headings to maintain position */
+  font-size: 1rem;
+  background-color: var(--bg-secondary); /* Ensure controls inherit navy blue */
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.statusBox {
+  margin-left: 0.5rem; /* Space between buttons and status */
+}
+
+.flexTable {
+  width: 100%; /* Match Nav width */
+  max-width: 1400px; /* Same as container and headerBox */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--bg-secondary);
+}
+
+.flexRow {
+  display: flex;
+  width: 100%;
+}
+
+.flexCell {
+  padding: 0.25rem 0.375rem;
+  border: 1px solid var(--accent-secondary);
+  flex: 1; /* Ensure even column spacing and full width */
+  min-width: 0; /* Allow shrinking */
+  color: #D3D3D3; /* Light Grey for text in cells */
+}
+
+.leftJustified {
+  text-align: left; /* Left justify Perp Markets content */
+}
+
+.centered {
+  text-align: center; /* Center API content */
+  display: flex; /* Use flex to stack title and button vertically */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center align items horizontally */
+}
+
+.rightJustified {
+  text-align: right; /* Right justify Indicators content */
+}
+
+.thTitle {
+  display: inline-block; /* Remove background/text box effect */
+  margin-right: 0.5rem; /* Space before "Select All" */
+  font-weight: bold;
+  background: none; /* Remove any background */
+  border: none; /* Remove any border */
+  padding: 0; /* Remove padding */
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.selectAllInline {
+  display: inline-flex; /* Keep on same line as "Perp Markets" */
+  align-items: center;
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownButton {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--bg-primary); /* Revert to previous settings */
+  color: #D3D3D3; /* Light Grey for text */
+  width: fit-content; /* Fit to text width */
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%; /* Force downward opening */
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--accent-secondary);
+  border-radius: 4px;
+  z-index: 1000; /* Float above UI */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: fit-content; /* Fit to widest text plus selector */
+  min-width: 200px; /* Minimum width to ensure readability */
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.dropdownDown {
+  bottom: auto; /* Ensure downward positioning */
+  top: 100%;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  margin: 0.25rem 0;
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.dropdownItem input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.dropdownItem span {
+  font-size: 1rem;
+}
+
+.orangeButton {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--warning); /* Orange for PAUSE */
+  color: #333333; /* Dark grey text for consistency */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.greenButton {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--success); /* Green for RESTART DB */
+  color: #333333; /* Dark grey text for consistency */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.greyButton {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: #808080; /* Grey for View button */
+  color: #333333; /* Dark grey text for consistency */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.viewButtonWrapper {
+  margin-top: 0.5rem; /* Space below the API title */
+}
+
+.status {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem; /* Match button padding for height */
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: #1a1f2e; /* Navy blue matching headerBox and buttons */
+  color: #ffffff; /* White text for contrast */
+}
+
+.selectionsLabel {
+  font-weight: normal; /* Plain text for the entire selections log */
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Above dropdowns */
+}
+
+.modalContent {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  background: transparent; /* No background color */
+  color: #D3D3D3; /* Light Grey for text */
+}
+
+.closeButton {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-secondary);
+  background-color: var(--bg-primary);
+  color: #D3D3D3; /* Light Grey for text */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.selectionsSpacer {
+  height: 1rem; /* Add space above "Selections" */
+}
