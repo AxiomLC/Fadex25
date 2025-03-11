@@ -1,0 +1,48 @@
+# Node.js (Backend and Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# TypeScript (Backend)
+backend/dist/
+backend/*.tsbuildinfo
+
+# SQLite (Backend)
+backend/*.db
+backend/*.db-journal
+backend/market_data.db
+
+# Logs and databases
+*.log
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# IDE and Editor files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build output (Backend and Frontend)
+backend/build/
+backend/out/
+frontend/build/
+frontend/dist/
+
+# Frontend-specific (e.g., React/Vue)
+frontend/node_modules/
+
+# Miscellaneous
+*.bak
+*.tmp
