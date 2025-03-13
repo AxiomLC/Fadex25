@@ -1,14 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "CommonJS", // Ensure CommonJS to match package.json
-      "moduleResolution": "Node",
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "outDir": "./dist",
-      "rootDir": "./"
-    },
-    "include": ["server.ts", "api/*.ts"]
-  }
+  "compilerOptions": {
+    "target": "ES2020", // Adjusted from ESNext for broader compatibility
+    "module": "CommonJS", // Matches package.json
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "types": ["node", "ccxt"] // Added to ensure CCXT types are resolved
+  },
+  "include": ["server.ts", "api/*.ts"]
+}
