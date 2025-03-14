@@ -4,5 +4,6 @@
 export const testPerpMarkets: string[] = [
     'ADA/USDT:USDT',  // Unified CCXT symbol for Bybit USDT-M perp
     'THETA/USDT:USDT',
-    'SOL/USDT:USDT'
+    'SOL/USDT:USDT',
+    'BTC/USDT:USDT'
   ];
